@@ -2,15 +2,22 @@ package com.example.morsecodehero
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.morsecodehero.ui.main.BarFragment
-import com.example.morsecodehero.ui.main.ButtonsFragment
-import com.example.morsecodehero.ui.main.LineFragment
-import com.example.morsecodehero.ui.main.MainFragment
+import android.util.Log
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
+import com.example.morsecodehero.ui.main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()  {
+
+    companion object {
+        private const val TAG = "MainActivity"
+    }
+
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
